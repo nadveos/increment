@@ -15,7 +15,9 @@ jobs:
         channel: 'stable'
     - run: flutter pub get
     - run: flutter build web --web-renderer canvaskit
-
+    - name: Deploy Github repo to Caprover
+      uses: caprover/deploy-from-github@v1.1.2
+            
     
       
    
