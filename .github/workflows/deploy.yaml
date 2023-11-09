@@ -3,7 +3,7 @@ name: Flutter Web
 on:
   push:
     branches:
-      - master
+      - main
       
 jobs:
   build:
@@ -25,8 +25,8 @@ jobs:
         push: true
         
 
-    - name: Deploy Image to CapRrover
-      uses: caprover/deploy-from-github@v1.1.2
+    - name: Deploy Github repo to Caprover
+      uses: caprover/deploy-from-github@v1.1.2      
       with:
         server: "${{ secrets.CAPROVER_SERVER }}"
         app: "${{ secrets.APP_NAME }}"
