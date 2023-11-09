@@ -1,12 +1,63 @@
 # flutter_application_1
 
-A new Flutter project.
+A new Flutter Web project.
 
 ## Getting Started
+## NOTICE!!! You need first at all run 
+```
+flutter run -d chrome --web-renderer html
 
-This project is a starting point for a Flutter application.
+```
+or
+```
+flutter build web --web-renderer canvaskit
 
-A few resources to get you started if this is your first Flutter project:
+```
+This project it´s hosted an caprover instance.
+
+A few steps to run this project:
+1° Create some app in caprover (copy the name "")
+2° Create captain-definition file in root project
+```
+ {
+  "schemaVersion": 2,
+  "dockerfilePath": "./Dockerfile"
+ }
+
+```
+3° Create a .Dockerfile in root folder. To deoploy an FlutterWeb project in this case i m using httpd image, like that:
+```
+FROM httpd:alpine
+
+COPY ./build/web /usr/local/apache2/htdocs/
+	
+EXPOSE 80
+```
+2° Create a folde called # .github, then subfolder # workflows inside file deploy.yaml
+```
+name: Flutter Web
+
+on:
+  push:
+    branches:
+      - main
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: subosito/flutter-action@v2
+      with:
+        channel: 'stable'
+    - run: flutter pub get
+    - run: flutter build web --web-renderer canvaskit
+
+```
+Now you can check action run on yor github project
+Then in your cap rover instance into your app go to deployment section of your app and select the way to deploy this project
+
+
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
