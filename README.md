@@ -56,7 +56,12 @@ jobs:
 ```
 Now you can check action run on yor github project
 Then in your cap rover instance into your app go to deployment section of your app and select the way to deploy this project
+# The best way
+![image](https://github.com/nadveos/increment/assets/94124026/5f8c9220-0217-4788-9a72-d52bfa92564f)
 
+
+# 2nd way
+![image](https://github.com/nadveos/increment/assets/94124026/e924a16b-b638-416b-b895-aef5ab1d97a0)
 
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
